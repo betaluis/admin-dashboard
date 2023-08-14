@@ -18,7 +18,7 @@ const Details = ({ user }: { user: User }) => {
                 <img className="block object-cover w-full h-full" src={user.img} alt={user.username} />
             </div>
             <div className="text-sm ml-4">
-                <span className="block pointer-events-none" aria-label="name">{user.username}</span>
+                <span className="block pointer-events-none text-white" aria-label="name">{user.username}</span>
                 <span className="pointer hidden" aria-label="email">{user.email}</span>
                 <span className="block pointer-events-none" aria-label="price">${user.amount}</span>
             </div>
