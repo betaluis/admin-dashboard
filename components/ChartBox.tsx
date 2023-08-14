@@ -1,12 +1,12 @@
 "use client"
-import { ChartDataType } from "@/data";
+import { LineChartType } from "@/data";
 import Image from "next/image"
 import Link from "next/link";
 import { LineChart, Line, ResponsiveContainer, Tooltip } from 'recharts';
 import { twMerge } from "tailwind-merge";
 
 type Props = {
-    data: ChartDataType | undefined;
+    data: LineChartType | undefined;
 }
 
 
@@ -38,8 +38,9 @@ const ChartBox = ({ data }: Props) => {
                                 type="monotone"
                                 dataKey={data.dataKey}
                                 stroke={data.lineStroke}
-                                strokeWidth={1}
                                 dot={false}
+                                activeDot={false}
+                                strokeWidth={1}
                             />
                         </LineChart>
                     </ResponsiveContainer>
@@ -51,6 +52,6 @@ const ChartBox = ({ data }: Props) => {
             </div>
         )
     }
-ChartBox}
+}
 
 export default ChartBox

@@ -1,4 +1,6 @@
-export type ChartDataType = {
+type BoxTypes = "top deals" | "line chart" | "bar chart" | "misc";
+
+export type LineChartType = {
     color: string;
     lineStroke: string;
     icon: string;
@@ -9,11 +11,19 @@ export type ChartDataType = {
     dataPoints: object[];
 }
 
+export type BarChartType = {
+    barColor: string;
+    title: string;
+    dataKey: string;
+    dataPoints: object[];
+}
+
 export type Boxes = {
     id: number;
     classNames: string;
-    type: "top deals" | "line chart" | "misc"
-    chartData?: ChartDataType
+    type: BoxTypes;
+    lineChartData?: LineChartType;
+    barChartData?: BarChartType;
 }
 
 export type User = {
@@ -150,9 +160,9 @@ export const boxes: Boxes[] = [
     },
     {
         id: 2,
-        classNames: "row-span-1 col-span-1" ,
+        classNames: "row-span-1 col-span-1",
         type: "line chart",
-        chartData: {
+        lineChartData: {
             color: "text-green-500",
             lineStroke: "#8B5CF6",
             icon: "/userIcon.svg",
@@ -175,7 +185,7 @@ export const boxes: Boxes[] = [
         id: 3,
         classNames: "row-span-1 col-span-1",
         type: "line chart",
-        chartData: {
+        lineChartData: {
             color: "text-green-500",
             lineStroke: "#93C5FD",
             icon: "/productIcon.svg",
@@ -203,7 +213,7 @@ export const boxes: Boxes[] = [
         id: 5,
         classNames: "row-span-1 col-span-1",
         type: "line chart",
-        chartData: {
+        lineChartData: {
             color: "text-green-500",
             lineStroke: "#FDE047",
             icon: "/conversionIcon.svg",
@@ -226,7 +236,7 @@ export const boxes: Boxes[] = [
         id: 6,
         classNames: "row-span-1 col-span-1",
         type: "line chart",
-        chartData: {
+        lineChartData: {
             color: "text-green-500",
             lineStroke: "#2563EB",
             icon: "/revenueIcon.svg",
@@ -248,12 +258,26 @@ export const boxes: Boxes[] = [
     {
         id: 7,
         classNames: "row-span-2 col-span-2",
-        type: "line chart"
+        type: "misc",
     },
     {
         id: 8,
         classNames: "row-span-1 col-span-1",
-        type: "misc"
+        type: "bar chart",
+        barChartData: {
+            barColor: "#FB923C",
+            title: "Total Visits",
+            dataKey: "visits",
+            dataPoints: [
+                { name: "Sun", visits: 330 },
+                { name: "Mon", visits: 190 },
+                { name: "Tues", visits: 30 },
+                { name: "Wed", visits: 100 },
+                { name: "Thurs", visits: 22 },
+                { name: "Fri", visits: 380 },
+                { name: "Sat", visits: 600 }
+            ],
+        }
     },
     {
         id: 9,
