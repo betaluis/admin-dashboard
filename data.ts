@@ -34,6 +34,28 @@ export type User = {
     amount: string;
 }
 
+const floorRandom = (multiple: number) => {
+    return Math.floor(Math.random() * multiple);
+}
+
+const dataPoints = (dataKey: string): object[] => {
+
+    let arr: object[] = [];
+    let weekDays: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    for (let i = 0; i < weekDays.length; i++) {
+        let obj: { [key: string]: number | string } = {};
+
+        obj["name"] = weekDays[i]
+        obj[dataKey] = floorRandom(1000)
+
+        arr.push(obj)
+    }
+
+    return arr;
+}
+
+
 export const sideMenu = [
     {
         id: 1,
@@ -168,17 +190,9 @@ export const boxes: Boxes[] = [
             icon: "/userIcon.svg",
             title: "Total Users",
             dataKey: "users",
-            number: 1200,
-            percentage: 45,
-            dataPoints: [
-                { name: "Sun", users: 400 },
-                { name: "Mon", users: 1500 },
-                { name: "Tues", users: 600 },
-                { name: "Wed", users: 1200 },
-                { name: "Thurs", users: 900 },
-                { name: "Fri", users: 700 },
-                { name: "Sat", users: 1200 }
-            ],
+            number: floorRandom(1000),
+            percentage: floorRandom(100),
+            dataPoints: dataPoints("users"),
         }
     },
     {
@@ -191,17 +205,9 @@ export const boxes: Boxes[] = [
             icon: "/productIcon.svg",
             title: "Total Products",
             dataKey: "products",
-            number: 238,
-            percentage: 52,
-            dataPoints: [
-                { name: "Sun", products: 100 },
-                { name: "Mon", products: 600 },
-                { name: "Tues", products: 300 },
-                { name: "Wed", products: 400 },
-                { name: "Thurs", products: 200 },
-                { name: "Fri", products: 500 },
-                { name: "Sat", products: 450 }
-            ],
+            number: floorRandom(1000),
+            percentage: floorRandom(100),
+            dataPoints: dataPoints("products"),
         }
     },
     {
@@ -219,17 +225,9 @@ export const boxes: Boxes[] = [
             icon: "/conversionIcon.svg",
             title: "Total Ratio",
             dataKey: "ratio",
-            number: "2.5",
-            percentage: 23,
-            dataPoints: [
-                { name: "Sun", ratio: 100 },
-                { name: "Mon", ratio: 300 },
-                { name: "Tues", ratio: 800 },
-                { name: "Wed", ratio: 500 },
-                { name: "Thurs", ratio: 890 },
-                { name: "Fri", ratio: 1000 },
-                { name: "Sat", ratio: 300 }
-            ],
+            number: floorRandom(1000),
+            percentage: floorRandom(100),
+            dataPoints: dataPoints("ratio"),
         }
     },
     {
@@ -242,17 +240,9 @@ export const boxes: Boxes[] = [
             icon: "/revenueIcon.svg",
             title: "Total Revenue",
             dataKey: "revenue",
-            number: 5000,
-            percentage: 82,
-            dataPoints: [
-                { name: "Sun", revenue: 2330 },
-                { name: "Mon", revenue: 1890 },
-                { name: "Tues", revenue: 3000 },
-                { name: "Wed", revenue: 1300 },
-                { name: "Thurs", revenue: 2632 },
-                { name: "Fri", revenue: 3800 },
-                { name: "Sat", revenue: 5600 }
-            ],
+            number: floorRandom(1000),
+            percentage: floorRandom(100),
+            dataPoints: dataPoints("revenue"),
         }
     },
     {
@@ -268,23 +258,21 @@ export const boxes: Boxes[] = [
             barColor: "#FB923C",
             title: "Total Visits",
             dataKey: "visits",
-            dataPoints: [
-                { name: "Sun", visits: 330 },
-                { name: "Mon", visits: 190 },
-                { name: "Tues", visits: 30 },
-                { name: "Wed", visits: 100 },
-                { name: "Thurs", visits: 22 },
-                { name: "Fri", visits: 380 },
-                { name: "Sat", visits: 600 }
-            ],
+            dataPoints: dataPoints("visits"),
         }
     },
     {
         id: 9,
         classNames: "row-span-1 col-span-1",
-        type: "misc"
+        type: "bar chart",
+        barChartData: {
+            barColor: "#60A5FA",
+            title: "Profit Earned",
+            dataKey: "profit",
+            dataPoints: dataPoints("profit"),
+        }
     }
-] 
+]
 
 export const topDealUsers: User[] = [
     {

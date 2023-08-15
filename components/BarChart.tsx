@@ -24,7 +24,7 @@ const BoxBarChart = ({ data }: Props) => {
                             labelStyle={{ display: "none" }}
                             cursor={{ fill: "none" }}
                         />
-                        <Bar dataKey={"visits"} fill={data?.barColor} />
+                        <Bar dataKey={data?.dataKey as string} fill={data?.barColor} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
